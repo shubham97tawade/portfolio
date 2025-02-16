@@ -19,7 +19,7 @@ export default async function Blogs(){
     const blogs: Blog[] = data as Blog[]
 
     return(
-        <main className="min-w-full min-h-screen grid place-items-center bg-gray-50 py-8">
+        <main className="min-w-full min-h-screen grid place-items-center bg-stone-50 py-8">
             <div className="flex flex-col gap-8 items-center">
                 {blogs.map((blog: Blog) => <BlogPreview key={blog?.blog_id} blog={blog} />)}
             </div>
