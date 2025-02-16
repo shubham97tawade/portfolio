@@ -1,12 +1,5 @@
 import { supabase } from "@/app/lib/dBClient";
 
-type BlogPageProps = {
-    params: {
-        id: string
-    }
-}
-
-
 export default async function BlogPage({params} : {params: Promise<{ id: string }>}){
     const { id } = await params;
     const { data, error } = await supabase.from('blogs').select('*').eq('id', id).single();
