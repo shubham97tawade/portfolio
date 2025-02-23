@@ -22,7 +22,7 @@ export default async function BlogPage({params} : {params: Promise<{ id: string 
                     <small className="text-sm mb-8 text-stone-600">{`Date: ${data?.created_at.split('T')[0]}`}</small>
                     <small className="text-sm mb-8 text-stone-600">{`Views: ${data?.views}`}</small>
                 </span>
-                <div className="flex flex-col w-full justify-center items-start [&>p]:text-stone-800 [&>p]:text-lg [&>p]:text-pb-3 [&>p]:leading-8 [&>figure]:my-3 [&>h3]:my-3 [&>h3]:text-2xl [&>h3]:text-stone-900 [&>h3]:font-medium [&>ul]:list-disc [&>ul]:list-disc [&>ul]:text-stone-800 [&>ul]:text-lg [&>ul]:text-pb-3">{parse(data?.blog)}</div>
+                <div className="flex flex-col w-full justify-center items-start [&>p]:text-stone-800 [&>p]:text-lg [&>p]:text-pb-3 [&>p]:leading-8 [&>figure]:my-3 [&>h3]:my-3 [&>h3]:text-2xl [&>h3]:text-stone-900 [&>h3]:font-medium [&>ul]:list-disc [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:text-stone-800 [&>ul]:text-lg [&>ul]:text-pb-3 [&>ul>li]:text-pb-3">{parse(data?.blog)}</div>
             </div>
         </div>
     )
