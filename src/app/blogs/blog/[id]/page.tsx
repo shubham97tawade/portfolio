@@ -1,5 +1,6 @@
 import { supabase } from "@/app/lib/dBClient";
 import parse from 'html-react-parser';
+import Head from "next/head";
 
 export default async function BlogPage({params} : {params: Promise<{ id: string }>}){
     const { id } = await params;
@@ -13,6 +14,18 @@ export default async function BlogPage({params} : {params: Promise<{ id: string 
     }
     return(
         <div className="grid min-h-screen place-items-center bg-gray-100 md:p-24">
+            <Head>
+                <title>{data?.title}</title>
+                <meta property="og:title" content={data?.title} />
+                <meta property="og:description" content={data.blog.split("<figure>")[0]} />
+                <meta property="og:image" content={data?.cover_image} />
+                <meta property="og:url" content={`https://shubhamtawade.dev/blogs/blog/${data.id}`} />
+                <meta property="og:type" content="article" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={data.title} />
+                <meta name="twitter:description" content={data.blog.split("<figure>")[0]} />
+                <meta name="twitter:image" content={data?.cover_image} />
+            </Head>
             <div className="flex p-8 bg-white flex-col items-start min-h-9/10">
                 <span className="flex flex-col md:flex-row md:items-end w-full">
                     <h1 className="text-5xl font-bold md:mb-8 mb-2 md:mr-2 text-stone-950">{`#${data?.count}`}</h1>
