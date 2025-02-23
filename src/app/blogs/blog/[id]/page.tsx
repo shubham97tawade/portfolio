@@ -12,7 +12,7 @@ export default async function BlogPage({params} : {params: Promise<{ id: string 
         return;
     }
     return(
-        <div className="grid min-h-screen place-items-center bg-gray-100 md:p-12">
+        <div className="grid min-h-screen place-items-center bg-gray-100 md:p-24">
             <div className="flex p-8 bg-white flex-col items-start min-h-9/10">
                 <span className="flex flex-col md:flex-row md:items-end w-full">
                     <h1 className="text-5xl font-bold md:mb-8 mb-2 md:mr-2 text-stone-950">{`#${data?.count}`}</h1>
