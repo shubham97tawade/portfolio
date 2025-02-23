@@ -22,7 +22,7 @@ export default async function BlogPage({params} : {params: Promise<{ id: string 
                     <small className="text-sm mb-8 text-stone-600">{`Date: ${data?.created_at.split('T')[0]}`}</small>
                     <small className="text-sm mb-8 text-stone-600">{`Views: ${data?.views}`}</small>
                 </span>
-                <div className="flex flex-col w-full justify-center items-start">{parse(data?.blog)}</div>
+                <div className="flex flex-col w-full justify-center items-start child:p:text-stone-700 child:p:text-lg">{parse(data?.blog)}</div>
             </div>
         </div>
     )
