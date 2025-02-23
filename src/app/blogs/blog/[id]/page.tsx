@@ -3,9 +3,9 @@ import { supabase } from "@/app/lib/dBClient";
 export default async function BlogPage({params} : {params: Promise<{ id: string }>}){
     const { id } = await params;
     const { data, error } = await supabase.from('blogs').select('*').eq('id', id).single();
-    console.log(await supabase.rpc('increment_blog_views', {
+    await supabase.rpc('increment_blog_views', {
         blog_id: id,
-    }))
+    })
     if (error) {
         console.error('Error fetching blogs:', error);
         return;
