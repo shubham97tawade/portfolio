@@ -10,7 +10,7 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeInOut' }}
-          className="text-4xl md:text-7xl"
+          className="text-4xl font-medium md:text-7xl"
         >
             Shubham Tawade
         </motion.h1>
@@ -18,7 +18,7 @@ export default function Home() {
           initial={{ opacity: 0}}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5, ease: 'easeInOut' }}
-          className="text-lg md:text-xl mb-12"
+          className="text-base md:ml-1 mb-12"
         >
             Developer.
         </motion.h5>
@@ -26,7 +26,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20}}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7, ease: 'easeInOut' }}
-          className="text-base"
+          className="text-base md:ml-1"
         >
             Welcome to my digital space. 🚀
         </motion.p>
