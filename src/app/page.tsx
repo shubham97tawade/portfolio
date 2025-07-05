@@ -110,13 +110,13 @@ export default function Home() {
           <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" className="w-8 h-8"/>Github</p>
         </motion.section>
       </div>
-      <div className="w-full h-dvh flex flex-col p-6 md:p-48 items-start justify-left">
+      <div className="w-full h-dvh flex flex-col p-8 md:p-24 items-center justify-left">
         <div className="w-full flex flex-col items-start justify-left">
           <motion.h2 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7, ease: 'easeInOut' }}
-          className="text-2xl font-medium md:text-5xl pb-12 w-full text-center"
+          className="text-2xl font-medium md:text-5xl mt-2 pb-12 w-full text-center"
           viewport={{ once: true }}
           >
             Contact Me
