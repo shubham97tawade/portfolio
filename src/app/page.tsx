@@ -39,7 +39,7 @@ export default function Home() {
       <div className='w-full h-dvh flex flex-col items-center justify-center'>
         <section className='w-3/4 flex flex-col items-start justify-center'>
           <motion.h2 
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -5 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: 'easeInOut' }}
           className="text-2xl font-medium md:text-5xl pb-12"
