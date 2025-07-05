@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <main className="w-full min-h-dvh grid grid-cols-1 grid-rows-4 place-items-center overflow-hidden">
+    <main className="w-full min-h-dvh grid grid-cols-1 grid-rows-4 place-items-center">
       <div className="w-full h-dvh flex flex-col items-center justify-center">
         <section className="flex flex-col items-start justify-center">
           <motion.h1 
@@ -78,34 +78,34 @@ export default function Home() {
       </div>
       <div className="w-full h-dvh grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2">
         <motion.section
-          initial={{ opacity: 0, x: -50}}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0}}
+          whileInView={{ opacity: 1}}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }} 
+          transition={{ duration: 0.7, delay: 0.5, ease: 'easeInOut' }} 
           className="w-full h-full flex items-center justify-center bg-white text-black hover:cursor-pointer order-1">
           <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135731.png" className="w-8 h-8"/>Resume</p>
         </motion.section>
         <motion.section 
-          initial={{ opacity: 0, x: 50}}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0}}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }}
+          transition={{ duration: 0.7, delay: 0.7, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-black text-white hover:cursor-pointer order-2">
           <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/4659/4659050.png" className="w-8 h-8"/>Blog</p>
         </motion.section>
         <motion.section
-          initial={{ opacity: 0, x: -50}}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0}}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }}
+          transition={{ duration: 0.7, delay: 0.9, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-black text-white hover:cursor-pointer md:order-3 order-4">
           <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" className="w-8 h-8"/>LinkedIn</p>
         </motion.section>
         <motion.section
-          initial={{ opacity: 0, x: 50}}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0}}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }}
+          transition={{ duration: 0.7, delay: 1.1, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-white text-black hover:cursor-pointer md:order-4 order-3">
           <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" className="w-8 h-8"/>Github</p>
         </motion.section>
@@ -150,7 +150,7 @@ export default function Home() {
             ></textarea>
           </motion.section>
           <motion.button 
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0}}
             transition={{ duration: 0.9, ease: 'easeInOut' }}
             viewport={{ once: true }}
