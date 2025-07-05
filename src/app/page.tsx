@@ -83,7 +83,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }} 
           className="w-full h-full flex items-center justify-center bg-white text-black hover:cursor-pointer order-1">
-          <p className="text-xl flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135731.png" className="w-8 h-8"/>Resume</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135731.png" className="w-8 h-8"/>Resume</p>
         </motion.section>
         <motion.section 
           initial={{ opacity: 0, x: 50}}
@@ -91,7 +91,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-black text-white hover:cursor-pointer order-2">
-          <p className="text-xl flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/4659/4659050.png" className="w-8 h-8"/>Blog</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/4659/4659050.png" className="w-8 h-8"/>Blog</p>
         </motion.section>
         <motion.section
           initial={{ opacity: 0, x: -50}}
@@ -99,7 +99,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-black text-white hover:cursor-pointer md:order-3 order-4">
-          <p className="text-xl flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" className="w-8 h-8"/>LinkedIn</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" className="w-8 h-8"/>LinkedIn</p>
         </motion.section>
         <motion.section
           initial={{ opacity: 0, x: 50}}
@@ -107,10 +107,10 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 1.3, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-white text-black hover:cursor-pointer md:order-4 order-3">
-          <p className="text-xl flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" className="w-8 h-8"/>Github</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" className="w-8 h-8"/>Github</p>
         </motion.section>
       </div>
-      <div className="w-full h-dvh p-12 md:p-48 flex items-center justify-center">
+      <div className="w-full h-dvh flex flex-col p-6 md:p-48 items-start justify-left">
         <div className="w-full flex flex-col items-start justify-left">
           <motion.h2 
           initial={{ opacity: 0 }}
@@ -154,7 +154,7 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0}}
             transition={{ duration: 0.9, ease: 'easeInOut' }}
             viewport={{ once: true }}
-            className="w-auto px-8 py-4 bg-blue-500 text-white rounded-md mt-2 hover:bg-blue-600 transition-colors">
+            className="w-auto px-6 py-3 md:px-8 md:py-4 bg-blue-500 text-white rounded-md mt-2 hover:bg-blue-600 transition-colors">
             Send Message
           </motion.button>
         </div>
