@@ -1,8 +1,56 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from 'framer-motion';
+import emailjs from 'emailjs-com'
+import { EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, EMAIL_JS_USER_ID } from "./lib/emailClient";
 
 export default function Home() {
+  const router = useRouter();
+  const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+  const formRef = React.useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+  }, []);
+
+  const openResume = () => {
+    window.open('https://drive.google.com/file/d/1NJPO2RPqYgOh9VfaGSLZkKRS4dGTjkJR/view', '_blank');
+  };
+
+  const navigateToBlogs = () => {
+    router.push('/blogs');
+  }
+
+  const openLinkedIn = () => {
+    window.open('https://www.linkedin.com/in/shubham-tawade-985340121/', '_blank');
+  };
+
+  const openGitHub = () => {
+    window.open('https://github.com/shubham05tawade', '_blank');
+  };
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if(!email || !message) {
+      alert("Please fill in both email and message fields.");
+      return;
+    }
+    emailjs.sendForm(EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, e.currentTarget, EMAIL_JS_USER_ID)
+      .then((result) => {
+          if (formRef.current) {
+            formRef.current.reset();
+          }
+          alert("Message sent successfully!");
+      }, (error) => {
+          alert("Failed to send message. Please try again later.");
+      });
+  };
+
   return (
     <main className="w-full min-h-dvh grid grid-cols-1 grid-rows-4 place-items-center">
       <div className="w-full h-dvh flex flex-col items-center justify-center">
@@ -83,7 +131,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.5, ease: 'easeInOut' }} 
           className="w-full h-full flex items-center justify-center bg-white text-black hover:cursor-pointer order-1">
-          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135731.png" className="w-8 h-8"/>Resume</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center" onClick={openResume}><img src="https://cdn-icons-png.flaticon.com/512/3135/3135731.png" className="w-8 h-8"/>Resume</p>
         </motion.section>
         <motion.section 
           initial={{ opacity: 0}}
@@ -91,7 +139,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.7, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-black text-white hover:cursor-pointer order-2">
-          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/4659/4659050.png" className="w-8 h-8"/>Blog</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center" onClick={navigateToBlogs}><img src="https://cdn-icons-png.flaticon.com/512/4659/4659050.png" className="w-8 h-8"/>Blog</p>
         </motion.section>
         <motion.section
           initial={{ opacity: 0}}
@@ -99,7 +147,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.9, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-black text-white hover:cursor-pointer md:order-3 order-4">
-          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" className="w-8 h-8"/>LinkedIn</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center" onClick={openLinkedIn}><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" className="w-8 h-8"/>LinkedIn</p>
         </motion.section>
         <motion.section
           initial={{ opacity: 0}}
@@ -107,11 +155,11 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 1.1, ease: 'easeInOut' }}
           className="w-full h-full flex items-center justify-center bg-white text-black hover:cursor-pointer md:order-4 order-3">
-          <p className="md:text-lg text-base flex flex-col items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" className="w-8 h-8"/>Github</p>
+          <p className="md:text-lg text-base flex flex-col items-center justify-center" onClick={openGitHub}><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" className="w-8 h-8"/>Github</p>
         </motion.section>
       </div>
       <div className="w-full h-dvh flex flex-col p-8 md:p-24 items-center justify-left">
-        <div className="w-full flex flex-col items-start justify-left">
+        <form className="w-full flex flex-col items-start justify-left" ref={formRef} onSubmit={sendEmail}>
           <motion.h2 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -131,8 +179,21 @@ export default function Home() {
             <label htmlFor="email" className="mb-1 text-base">Email:</label>
             <input
               type="email"
-              placeholder="Enter your email"
-              className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base text-black"
+              placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              required
+              id="email"
+              autoComplete="email"
+              autoFocus
+              onFocus={() => setEmail('')}
+              onBlur={() => setEmail(email.trim())}
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+              title="Please enter a valid email address"
+              maxLength={100}
+              minLength={5}
+              className="w-full p-3 mb-4 border border-foreground-300 rounded-sm focus:outline-none text-base bg-transparent"
             />
           </motion.section>
           <motion.section
@@ -145,8 +206,21 @@ export default function Home() {
             <label htmlFor="message" className="mb-1 text-base">Message:</label>
             <textarea
               placeholder="Your message"
-              className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base text-black"
+              className="w-full p-3 mb-4 border border-foreground-300 rounded-sm focus:outline-none focus:ring-foreground-500 text-base bg-transparent"
               rows={10}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              name="message"
+              id="message"
+              required
+              onFocus={() => setMessage('')}
+              onBlur={() => setMessage(message.trim())}
+              maxLength={500}
+              minLength={5}
+              title="Message must be between 5 and 500 characters"
+              autoComplete="off"
+              autoFocus
+              style={{ resize: 'none' }}  
             ></textarea>
           </motion.section>
           <motion.button 
@@ -154,12 +228,12 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0}}
             transition={{ duration: 0.9, ease: 'easeInOut' }}
             viewport={{ once: true }}
-            className="w-auto px-6 py-3 md:px-8 md:py-4 bg-blue-500 text-white rounded-md mt-2 hover:bg-blue-600 transition-colors">
+            type="submit"
+            className="w-auto px-4 py-3 md:px-6 md:py-4 bg-foreground text-background rounded-sm mt-2 hover:bg-foreground transition-colors text-base">
             Send Message
           </motion.button>
-        </div>
+        </form>
       </div>
     </main>
-
   );
 }
