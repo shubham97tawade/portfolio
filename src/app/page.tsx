@@ -41,12 +41,12 @@ export default function Home() {
       return;
     }
     emailjs.sendForm(EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, e.currentTarget, EMAIL_JS_USER_ID)
-      .then((result) => {
+      .then(() => {
           if (formRef.current) {
             formRef.current.reset();
           }
           alert("Message sent successfully!");
-      }, (error) => {
+      }, () => {
           alert("Failed to send message. Please try again later.");
       });
   };
