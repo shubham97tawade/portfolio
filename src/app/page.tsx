@@ -173,7 +173,7 @@ export default function Home() {
             initial={{ opacity: 0}}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.7, ease: 'easeInOut' }}
+            transition={{ duration: 0.7, ease: 'easeInOut' }}
             className="w-full"
           >
             <label htmlFor="email" className="mb-1 text-base">Email:</label>
@@ -199,7 +199,7 @@ export default function Home() {
             initial={{ opacity: 0,}}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.7, ease: 'easeInOut' }}
+            transition={{ duration: 0.7, ease: 'easeInOut' }}
             className="w-full"
           >
             <label htmlFor="message" className="mb-1 text-base">Message:</label>
