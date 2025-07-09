@@ -186,7 +186,6 @@ export default function Home() {
               required
               id="email"
               autoComplete="email"
-              autoFocus
               onFocus={() => setEmail('')}
               onBlur={() => setEmail(email.trim())}
               pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
@@ -219,7 +218,6 @@ export default function Home() {
               minLength={5}
               title="Message must be between 5 and 500 characters"
               autoComplete="off"
-              autoFocus
               style={{ resize: 'none' }}  
             ></textarea>
           </motion.section>
